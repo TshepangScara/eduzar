@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free structured learning paths on EduZar – follow a curated course sequence and earn a completion certificate.">
+    <meta property="og:title" content="Learning Paths | EduZar">
+    <meta property="og:description" content="Curated, ordered course tracks toward a real skill or role. Track your progress and earn a free certificate.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images-eduzar/logo eduzar.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Learning Paths | EduZar">
+    <meta name="twitter:description" content="Curated, ordered course tracks toward a real skill or role. Track your progress and earn a free certificate.">
+    <title>Learning Paths | EduZar</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#007bff">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="EduZar">
+    <link rel="apple-touch-icon" href="images-eduzar/logo eduzar.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════════ -->
+<header class="header" id="header">
+    <div class="container">
+
+        <button class="categories-btn" id="categories-btn" aria-label="Browse categories">
+            <i class="ri-apps-2-line"></i>
+            <span>Browse</span>
+        </button>
+
+        <a href="index.html" class="logo">
+            <img src="images-eduzar/logo eduzar.png" alt="EduZar Logo">
+        </a>
+
+        <nav class="navbar" id="navbar">
+            <div class="nav-header">
+                <a href="index.html" class="logo mobile-logo">
+                    <img src="images-eduzar/logo eduzar.png" alt="EduZar Logo">
+                </a>
+                <button class="close-menu" id="close-menu" aria-label="Close menu">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+
+            <ul class="nav-list">
+                <li><a href="index.html"            class="nav-link">Home</a></li>
+                <li><a href="index.html#categories" class="nav-link">Categories</a></li>
+                <li><a href="courses.html"          class="nav-link">Courses</a></li>
+                <li><a href="paths.html"            class="nav-link active">Paths</a></li>
+                <li><a href="index.html#about"      class="nav-link">About</a></li>
+                <li>
+                    <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+                        <i class="ri-moon-line"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="nav-auth">
+            <a href="index.html" class="btn btn-outline btn-sm">Home</a>
+        </div>
+
+        <button class="open-menu" id="open-menu" aria-label="Open menu">
+            <i class="ri-menu-3-line"></i>
+        </button>
+    </div>
+</header>
+
+<!-- Overlay for mobile menu -->
+<div class="overlay" id="overlay"></div>
+
+<!-- ══════════════════════════════════════════════
+     CATEGORIES SIDEBAR
+══════════════════════════════════════════════ -->
+<aside class="cat-sidebar" id="cat-sidebar">
+    <div class="cat-sidebar-header">
+        <span>Browse Categories</span>
+        <button id="cat-close" aria-label="Close categories"><i class="ri-close-line"></i></button>
+    </div>
+    <ul class="cat-list">
+        <li><a href="courses.html?category=programming"><i class="ri-code-s-slash-line"></i> Programming</a></li>
+        <li><a href="courses.html?category=design"><i class="ri-palette-line"></i> Design</a></li>
+        <li><a href="courses.html?category=data"><i class="ri-bar-chart-line"></i> Data Science</a></li>
+        <li><a href="courses.html?category=marketing"><i class="ri-megaphone-line"></i> Marketing</a></li>
+        <li><a href="courses.html?category=business"><i class="ri-briefcase-line"></i> Business</a></li>
+        <li><a href="courses.html?category=language"><i class="ri-translate-2"></i> Languages</a></li>
+        <li><a href="courses.html?category=music"><i class="ri-music-line"></i> Music</a></li>
+    </ul>
+</aside>
+
+<!-- ══════════════════════════════════════════════
+     LEARNING PATHS
+══════════════════════════════════════════════ -->
+<main>
+    <section class="paths-section">
+        <div class="container">
+            <h2 class="section-title">Learning Paths</h2>
+            <p class="section-subtitle">Curated, ordered course tracks toward a real skill or role. Finish every course in a path to unlock a free certificate.</p>
+
+            <!-- Path cards: populated from learning-paths-data.js by main.js -->
+            <div class="paths-grid"></div><!-- /.paths-grid -->
+        </div>
+    </section>
+</main>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer>
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <img src="images-eduzar/logo eduzar.png" alt="EduZar Logo" class="footer-logo">
+            <p>Free, curated learning for every South African.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="courses.html">Courses</a>
+            <a href="paths.html">Learning Paths</a>
+            <a href="index.html#about">About Us</a>
+        </div>
+        <div class="footer-social">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+                <a href="#" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
+                <a href="#" aria-label="Twitter/X"><i class="ri-twitter-x-fill"></i></a>
+                <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 EduZar. All rights reserved. Made with ❤️ in South Africa.</p>
+    </div>
+</footer>
+
+<script src="courses-data.js"></script>
+<script src="learning-paths-data.js"></script>
+<script src="main.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+            .then(reg => console.log('EduZar SW registered:', reg.scope))
+            .catch(err => console.warn('SW registration failed:', err));
+    }
+</script>
+</body>
+</html>

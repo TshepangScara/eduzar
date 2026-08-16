@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"/c/Users/Tshep/.claude/projects/c--Users-Tshep-OneDrive-Documents-Compukids-website-1-EduZar/memory/\")",
+      "Read(//c/Users/Tshep/.claude/projects/c--Users-Tshep-OneDrive-Documents-Compukids-website-1-EduZar/**)",
+      "Bash(curl -sf http://localhost:8123/index.html)",
+      "Bash(py -3 --version)",
+      "Bash(npx --version)",
+      "Bash(npx playwright *)"
+    ]
+  }
+}
