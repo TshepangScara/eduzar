@@ -7,7 +7,7 @@ const EDUZAR_PATHS = [
         title: "Front-End Web Developer",
         icon: "ri-code-s-slash-line",
         description: "Go from zero to building interactive, styled websites and web apps.",
-        courses: ["OX9HJsJUDxA", "PkZNo7MFNFg", "RGOj5yH7evk", "bMknfKXIFA8", "30LWjhZzg50", "qZXt1Aom3Cs"]
+        courses: ["pQN-pnXPaVg", "1Rs2ND1ryYc", "PkZNo7MFNFg", "RGOj5yH7evk", "bMknfKXIFA8", "30LWjhZzg50"]
     },
     {
         id: "backend-dev",
@@ -21,7 +21,7 @@ const EDUZAR_PATHS = [
         title: "Python & Machine Learning",
         icon: "ri-terminal-box-line",
         description: "Build a strong Python foundation, then apply it to real machine learning models.",
-        courses: ["kqtD5dpn9C8", "RGOj5yH7evk", "HXV3zeQKqGY", "i_LwzRVP7bg"]
+        courses: ["8DvywoWv6fI", "RGOj5yH7evk", "HXV3zeQKqGY", "xxpc-HPKN28", "i_LwzRVP7bg"]
     },
     {
         id: "data-analyst",
@@ -35,20 +35,20 @@ const EDUZAR_PATHS = [
         title: "UI/UX & Freelance Design",
         icon: "ri-palette-line",
         description: "Design professional interfaces and graphics — everything you need to freelance.",
-        courses: ["FTFaQWZBqQ8", "c8KoJNTTSw0", "IyR_uYsRdPs", "LxO-6rlihSg"]
+        courses: ["FTFaQWZBqQ8", "I8uWcFnh36M", "IyR_uYsRdPs", "LxO-6rlihSg"]
     },
     {
         id: "digital-marketer",
         title: "Digital Marketer",
         icon: "ri-megaphone-line",
         description: "Master the core channels businesses pay for: SEO, social, ads, and email.",
-        courses: ["xsVTqzratPs", "SKBG1sqdyIU", "lD3plMqRmgQ", "hZskMUzgSEM"]
+        courses: ["R5vK1PLygHU", "xsVTqzratPs", "oyOAfnnoIyI", "FuOmpoZjZ2s", "Go3QTwORnhY"]
     },
     {
         id: "entrepreneur",
         title: "Entrepreneur & Small Business",
         icon: "ri-briefcase-line",
         description: "Practical skills to start, run, and manage the finances of your own business.",
-        courses: ["8eYxMVHSJqk", "Vl0H-qTclOg", "HQzoZfc3GwQ", "SKBG1sqdyIU"]
+        courses: ["UEngvxZ11sw", "Vl0H-qTclOg", "ic1wdDl9T44", "oyOAfnnoIyI"]
     }
 ];

@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EduZar – Thousands of free, hand-curated YouTube courses. Learn anything, anytime, for free.">
+    <meta name="description" content="EduZar – free, hand-picked YouTube courses and learning paths. Learn anything, anytime, with no sign-up.">
     <meta property="og:title" content="EduZar – Learn Anything, Anytime, For Free">
-    <meta property="og:description" content="Thousands of hand-curated YouTube courses & tutorials. From beginner to pro – no sign-up required.">
+    <meta property="og:description" content="Hand-picked YouTube courses & learning paths with progress tracking and free certificates. No sign-up required.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images-eduzar/logo eduzar.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="EduZar – Free Educational Platform">
-    <meta name="twitter:description" content="Thousands of hand-curated YouTube courses. Learn anything for free.">
-    <title>EduZar - Educational Platform</title>
+    <meta name="twitter:description" content="Hand-picked YouTube courses & learning paths. Learn anything for free.">
+    <title>EduZar – Learn Anything, For Free</title>
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="styles.css">
+    <script>try{var t=localStorage.getItem("eduzar-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
 </head>
 <body>
 
@@ -57,8 +58,8 @@
                 <li><a href="#home"         class="nav-link">Home</a></li>
                 <li><a href="#categories"   class="nav-link">Categories</a></li>
                 <li><a href="#featured"     class="nav-link">Featured</a></li>
-                <li><a href="courses.html"  class="nav-link" target="_blank">Courses</a></li>
-                <li><a href="paths.html"    class="nav-link" target="_blank">Paths</a></li>
+                <li><a href="courses.html"  class="nav-link">Courses</a></li>
+                <li><a href="paths.html"    class="nav-link">Paths</a></li>
                 <li><a href="#about"        class="nav-link">About Us</a></li>
                 <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
                 <li>
@@ -70,7 +71,7 @@
         </nav>
 
         <div class="nav-auth">
-            <a href="courses.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Get Started</a>
+            <a href="courses.html" class="btn btn-primary btn-sm">Get Started</a>
         </div>
 
         <button class="open-menu" id="open-menu" aria-label="Open menu">
@@ -110,8 +111,8 @@
             <span class="hero-badge">🇿🇦 South Africa's Free Learning Platform</span>
             <h1>Learn <span class="highlight">Anything</span>, Anytime – For Free</h1>
             <p class="hero-subtitle">
-                Thousands of hand-curated YouTube courses &amp; tutorials.<br>
-                From beginner to pro – no sign-up required to start watching.
+                The best free YouTube courses, hand-picked and organised into learning paths.<br>
+                Track your progress, pick up where you left off – no sign-up required.
             </p>
 
             <div class="hero-search">
@@ -128,16 +129,33 @@
             </div>
 
             <div class="hero-cta">
-                <a href="courses.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Browse All Courses</a>
+                <a href="courses.html" class="btn btn-primary">Browse All Courses</a>
                 <a href="#categories" class="btn btn-outline">View Categories</a>
             </div>
 
             <div class="hero-stats">
-                <div><strong id="stat-courses">32+</strong> Courses</div>
+                <div><strong id="stat-courses">37</strong> Courses</div>
                 <div><strong id="stat-topics">80+</strong> Topics</div>
                 <div><strong>100% Free</strong></div>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CONTINUE LEARNING (shown once you've opened a course)
+══════════════════════════════════════════════ -->
+<section class="continue-learning" id="continue-learning" hidden>
+    <div class="container">
+        <div class="continue-header">
+            <div>
+                <h2>Continue Learning</h2>
+                <p>Pick up right where you left off.</p>
+            </div>
+            <a href="courses.html" class="btn btn-outline btn-sm">Browse more</a>
+        </div>
+        <!-- Populated from your watch history by main.js -->
+        <div class="recent-grid"></div>
     </div>
 </section>
 
@@ -150,45 +168,45 @@
         <p class="section-subtitle">Find courses grouped by the topics you care about most.</p>
 
         <div class="categories-grid">
-            <a href="courses.html?category=programming" class="category-card" target="_blank" rel="noopener noreferrer">
+            <a href="courses.html?category=programming" class="category-card">
                 <i class="ri-code-s-slash-line category-icon"></i>
                 <h3>Programming</h3>
-                <span>120+ courses</span>
+                <span>13 courses</span>
             </a>
-            <a href="courses.html?category=design" class="category-card" target="_blank" rel="noopener noreferrer">
+            <a href="courses.html?category=design" class="category-card">
                 <i class="ri-palette-line category-icon"></i>
-                <h3>UI / UX Design</h3>
-                <span>60+ courses</span>
+                <h3>Design</h3>
+                <span>4 courses</span>
             </a>
-            <a href="courses.html?category=data" class="category-card" target="_blank" rel="noopener noreferrer">
+            <a href="courses.html?category=data" class="category-card">
                 <i class="ri-bar-chart-line category-icon"></i>
                 <h3>Data Science</h3>
-                <span>45+ courses</span>
+                <span>5 courses</span>
             </a>
-            <a href="courses.html?category=marketing" class="category-card" target="_blank" rel="noopener noreferrer">
+            <a href="courses.html?category=marketing" class="category-card">
                 <i class="ri-megaphone-line category-icon"></i>
                 <h3>Marketing</h3>
-                <span>40+ courses</span>
+                <span>5 courses</span>
             </a>
-            <a href="courses.html?category=design" class="category-card" target="_blank" rel="noopener noreferrer">
+            <a href="courses.html?q=photo" class="category-card">
                 <i class="ri-camera-line category-icon"></i>
                 <h3>Photography</h3>
-                <span>30+ courses</span>
+                <span>2 courses</span>
             </a>
-            <a href="courses.html?category=business" class="category-card" target="_blank" rel="noopener noreferrer">
+            <a href="courses.html?category=business" class="category-card">
                 <i class="ri-briefcase-line category-icon"></i>
                 <h3>Business</h3>
-                <span>50+ courses</span>
+                <span>4 courses</span>
             </a>
-            <a href="courses.html?category=language" class="category-card" target="_blank" rel="noopener noreferrer">
+            <a href="courses.html?category=language" class="category-card">
                 <i class="ri-translate-2 category-icon"></i>
                 <h3>Languages</h3>
-                <span>35+ courses</span>
+                <span>5 courses</span>
             </a>
-            <a href="courses.html?category=music" class="category-card" target="_blank" rel="noopener noreferrer">
+            <a href="courses.html?category=music" class="category-card">
                 <i class="ri-music-line category-icon"></i>
                 <h3>Music</h3>
-                <span>25+ courses</span>
+                <span>2 courses</span>
             </a>
         </div>
     </div>
@@ -206,7 +224,7 @@
         <div class="featured-grid"></div>
 
         <div style="text-align:center; margin-top: 3.5rem;">
-            <a href="courses.html" id="see-all-link" class="btn btn-outline" target="_blank" rel="noopener noreferrer">See All 32+ Courses</a>
+            <a href="courses.html" id="see-all-link" class="btn btn-outline">See All 37 Courses</a>
         </div>
     </div>
 </section>
@@ -223,7 +241,7 @@
         <div class="paths-teaser-grid"></div>
 
         <div style="text-align:center; margin-top: 3.5rem;">
-            <a href="paths.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View All Learning Paths</a>
+            <a href="paths.html" class="btn btn-primary">View All Learning Paths</a>
         </div>
     </div>
 </section>
@@ -246,17 +264,17 @@
             <ul class="about-features">
                 <li><i class="ri-check-double-line"></i> 100% free — forever, no hidden fees</li>
                 <li><i class="ri-check-double-line"></i> Hand-curated from trusted YouTube educators</li>
-                <li><i class="ri-check-double-line"></i> Covers 120+ topics across every skill level</li>
+                <li><i class="ri-check-double-line"></i> Beginner to advanced — something for every level</li>
                 <li><i class="ri-check-double-line"></i> New courses added every week</li>
                 <li><i class="ri-check-double-line"></i> No account or sign-up needed to watch</li>
             </ul>
 
-            <a href="courses.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Start Learning Now</a>
+            <a href="courses.html" class="btn btn-primary">Start Learning Now</a>
         </div>
 
         <div class="about-stats">
             <div class="stat-box">
-                <strong id="stat-courses-2">32+</strong>
+                <strong id="stat-courses-2">37</strong>
                 <span>Free Courses</span>
             </div>
             <div class="stat-box">
@@ -264,11 +282,11 @@
                 <span>Topics</span>
             </div>
             <div class="stat-box">
-                <strong id="stat-educators">17+</strong>
+                <strong id="stat-educators">18</strong>
                 <span>Educators</span>
             </div>
             <div class="stat-box">
-                <strong id="stat-hours">243+</strong>
+                <strong id="stat-hours">185+</strong>
                 <span>Hours of Content</span>
             </div>
         </div>

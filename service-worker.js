@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eduzar-v4';
+const CACHE_NAME = 'eduzar-v5';
 
 // Core assets to cache for offline use
 const CORE_ASSETS = [
@@ -35,28 +35,32 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch – serve from cache, fallback to network
+// Fetch – network first so site updates reach visitors immediately; the cache
+// is only the offline fallback. Cross-origin requests (YouTube, fonts, icons)
+// are left to the browser.
 self.addEventListener('fetch', event => {
-  // Only handle GET requests
-  if (event.request.method !== 'GET') return;
+  const request = event.request;
+  if (request.method !== 'GET') return;
+
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+
+  // Cache by path so courses.html?category=x and ?q=y share one entry
+  const cacheKey = url.origin + url.pathname;
 
   event.respondWith(
-    caches.match(event.request).then(cached => {
-      if (cached) return cached;
-
-      return fetch(event.request).then(response => {
-        // Cache successful responses for same-origin requests
-        if (response && response.status === 200 && response.type === 'basic') {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
-        }
-        return response;
-      }).catch(() => {
-        // Offline fallback for navigation requests
-        if (event.request.mode === 'navigate') {
-          return caches.match('index.html');
-        }
-      });
-    })
+    fetch(request).then(response => {
+      if (response && response.ok) {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(cacheKey, clone));
+      }
+      return response;
+    }).catch(() =>
+      caches.match(cacheKey).then(cached => {
+        if (cached) return cached;
+        if (request.mode === 'navigate') return caches.match('index.html');
+        return Response.error();
+      })
+    )
   );
 });

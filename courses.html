@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="styles.css">
+    <script>try{var t=localStorage.getItem("eduzar-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
 </head>
 <body>
 
@@ -113,7 +114,7 @@
                 <input
                     type="text"
                     id="search-input"
-                    placeholder="Search by title, channel, or topic…"
+                    placeholder="Search by title, channel, or topic…  (press /)"
                     class="search-input"
                     aria-label="Search courses"
                 >
@@ -135,10 +136,42 @@
                 <button class="filter-btn filter-favorites" data-category="favorites"><i class="ri-heart-fill"></i> My Favorites</button>
             </div>
 
+            <!-- Result count + level/sort controls -->
+            <div class="filter-tools">
+                <p class="results-count" id="results-count" aria-live="polite"></p>
+                <div class="filter-selects">
+                    <label class="select-control">
+                        <span class="sr-only">Filter by level</span>
+                        <i class="ri-bar-chart-line"></i>
+                        <select id="level-filter">
+                            <option value="all">All levels</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </label>
+                    <label class="select-control">
+                        <span class="sr-only">Sort courses</span>
+                        <i class="ri-sort-desc"></i>
+                        <select id="sort-select">
+                            <option value="default">Recommended</option>
+                            <option value="new">Newest first</option>
+                            <option value="short">Shortest first</option>
+                            <option value="long">Longest first</option>
+                            <option value="az">A – Z</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
             <!-- Courses Grid: populated from courses-data.js by main.js -->
             <div class="courses-grid"></div><!-- /.courses-grid -->
 
-            <p class="no-results" id="no-results">No courses found. Try a different keyword.</p>
+            <div class="no-results" id="no-results">
+                <i class="ri-search-eye-line"></i>
+                <p id="no-results-text">No courses match those filters. Try a different keyword or level.</p>
+                <button class="btn btn-outline" id="clear-filters">Clear filters</button>
+            </div>
 
         </div>
     </section>
