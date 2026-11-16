@@ -1,39 +1,24 @@
 {
   "name": "EduZar – Free Learning",
   "short_name": "EduZar",
-  "description": "Free, curated YouTube courses for every skill level.",
+  "description": "Free, hand-picked YouTube courses and learning paths for every skill level.",
+  "id": "./",
   "start_url": "index.html?source=pwa",
-  "scope": ".",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#007bff",
+  "background_color": "#f7f8fb",
+  "theme_color": "#1557d6",
   "orientation": "portrait-primary",
+  "lang": "en-ZA",
   "categories": ["education"],
   "icons": [
-    {
-      "src": "images-eduzar/logo eduzar.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "images-eduzar/logo eduzar.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    { "src": "images-eduzar/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "images-eduzar/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "images-eduzar/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
-  "screenshots": [],
   "shortcuts": [
-    {
-      "name": "Browse Courses",
-      "url": "courses.html",
-      "description": "Go directly to the courses page"
-    },
-    {
-      "name": "Learning Paths",
-      "url": "paths.html",
-      "description": "Go directly to the learning paths page"
-    }
+    { "name": "Browse Courses", "url": "courses.html", "description": "Go straight to the course catalogue" },
+    { "name": "Learning Paths", "url": "paths.html", "description": "Go straight to the learning paths" },
+    { "name": "Saved Courses", "url": "courses.html?category=favorites", "description": "Courses you've saved" }
   ]
 }

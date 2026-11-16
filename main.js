@@ -27,6 +27,22 @@ function setUrlParam(key, value) {
     history.replaceState(history.state, "", url);
 }
 
+// Highlights the current page in the top nav and the mobile bottom nav.
+// "Saved" is the courses page filtered to favourites.
+function syncActiveNav() {
+    const page = document.body.dataset.page || "index";
+    const params = new URLSearchParams(location.search);
+    const current = page === "courses" && params.get("category") === "favorites" ? "saved" : page;
+    document.querySelectorAll("[data-nav]").forEach((link) => {
+        const on = link.dataset.nav === current;
+        link.classList.toggle("active", on);
+        if (on) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+    });
+}
+document.addEventListener("DOMContentLoaded", syncActiveNav);
+syncActiveNav();
+
 function courseById(id) {
     return typeof EDUZAR_COURSES !== "undefined" ? EDUZAR_COURSES.find(c => c.id === id) : undefined;
 }
@@ -557,6 +573,8 @@ if (typeof EDUZAR_COURSES !== "undefined") {
         "stat-topics": `${totalTopics}+`,
         "stat-topics-2": `${totalTopics}+`,
         "stat-hours": `${Math.floor(totalHours)}+`,
+        "stat-hours-hero": `${Math.floor(totalHours)}+`,
+        "stat-educators-hero": `${totalEducators}`,
         "stat-educators": `${totalEducators}`
     };
     Object.entries(statValues).forEach(([id, value]) => {
@@ -660,6 +678,7 @@ if (typeof EDUZAR_COURSES !== "undefined") {
             setUrlParam("category", state.category === "all" ? null : state.category);
             setUrlParam("level", state.level === "all" ? null : state.level);
             setUrlParam("sort", state.sort === "default" ? null : state.sort);
+            syncActiveNav();
         };
 
         filterBtns.forEach((btn) => {
@@ -910,7 +929,7 @@ if (typeof EDUZAR_PATHS !== "undefined" && typeof EDUZAR_COURSES !== "undefined"
     function fillFittedText(ctx, text, x, y, weight, maxSize, maxWidth) {
         let size = maxSize;
         do {
-            ctx.font = `${weight} ${size}px Poppins, sans-serif`;
+            ctx.font = `${weight} ${size}px "Bricolage Grotesque", "DM Sans", system-ui, sans-serif`;
             size -= 2;
         } while (ctx.measureText(text).width > maxWidth && size > 20);
         ctx.fillText(text, x, y);
@@ -921,58 +940,76 @@ if (typeof EDUZAR_PATHS !== "undefined" && typeof EDUZAR_COURSES !== "undefined"
         const w = certCanvas.width, h = certCanvas.height;
         const maxTextWidth = w - 240;
 
+        const DISPLAY = '"Bricolage Grotesque", "DM Sans", system-ui, sans-serif';
+        const BODY = '"DM Sans", system-ui, sans-serif';
         if (document.fonts) {
             try {
                 await Promise.all([
-                    document.fonts.load("700 72px Poppins"),
-                    document.fonts.load("400 28px Poppins")
+                    document.fonts.load(`800 72px ${DISPLAY}`),
+                    document.fonts.load(`400 28px ${BODY}`)
                 ]);
                 await document.fonts.ready;
-            } catch { /* fall back to the default font if Poppins fails to load */ }
+            } catch { /* fall back to the system font if web fonts fail to load */ }
         }
 
-        const bg = ctx.createLinearGradient(0, 0, w, h);
-        bg.addColorStop(0, "#eef2ff");
-        bg.addColorStop(1, "#f8fafc");
-        ctx.fillStyle = bg;
+        // Paper background with soft brand-coloured corners
+        ctx.fillStyle = "#fbfaf7";
         ctx.fillRect(0, 0, w, h);
+        const glowA = ctx.createRadialGradient(0, 0, 0, 0, 0, 700);
+        glowA.addColorStop(0, "rgba(21,87,214,0.12)"); glowA.addColorStop(1, "rgba(21,87,214,0)");
+        ctx.fillStyle = glowA; ctx.fillRect(0, 0, w, h);
+        const glowB = ctx.createRadialGradient(w, h, 0, w, h, 700);
+        glowB.addColorStop(0, "rgba(242,106,27,0.14)"); glowB.addColorStop(1, "rgba(242,106,27,0)");
+        ctx.fillStyle = glowB; ctx.fillRect(0, 0, w, h);
 
-        ctx.strokeStyle = "#2563eb";
-        ctx.lineWidth = 10;
-        ctx.strokeRect(30, 30, w - 60, h - 60);
-        ctx.strokeStyle = "#7c3aed";
-        ctx.lineWidth = 3;
-        ctx.strokeRect(50, 50, w - 100, h - 100);
+        // Borders
+        ctx.strokeStyle = "#0b1b3a";
+        ctx.lineWidth = 6;
+        ctx.strokeRect(40, 40, w - 80, h - 80);
+        ctx.strokeStyle = "#f26a1b";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(58, 58, w - 116, h - 116);
+
+        // Logo, if it has loaded
+        const logo = document.querySelector(".logo-light");
+        if (logo?.complete && logo.naturalWidth) {
+            const lw = 300, lh = lw * logo.naturalHeight / logo.naturalWidth;
+            ctx.drawImage(logo, (w - lw) / 2, 95, lw, lh);
+        }
 
         ctx.textAlign = "center";
 
-        ctx.fillStyle = "#2563eb";
-        ctx.font = "700 42px Poppins, sans-serif";
-        ctx.fillText("EDUZAR", w / 2, 160);
+        ctx.fillStyle = "#f26a1b";
+        ctx.font = `700 24px ${BODY}`;
+        ctx.letterSpacing = "6px";
+        ctx.fillText("CERTIFICATE OF COMPLETION", w / 2, 300);
+        ctx.letterSpacing = "0px";
 
-        ctx.fillStyle = "#111827";
-        ctx.font = "700 56px Poppins, sans-serif";
-        ctx.fillText("Certificate of Completion", w / 2, 250);
+        ctx.fillStyle = "#5b6b85";
+        ctx.font = `400 30px ${BODY}`;
+        ctx.fillText("This certifies that", w / 2, 410);
 
-        ctx.fillStyle = "#6b7280";
-        ctx.font = "400 28px Poppins, sans-serif";
-        ctx.fillText("This certifies that", w / 2, 400);
+        ctx.fillStyle = "#0b1b3a";
+        fillFittedText(ctx, name, w / 2, 520, 800, 86, maxTextWidth);
 
-        ctx.fillStyle = "#7c3aed";
-        fillFittedText(ctx, name, w / 2, 500, 700, 72, maxTextWidth);
+        // Accent rule under the name
+        ctx.fillStyle = "#1557d6";
+        ctx.fillRect(w / 2 - 120, 556, 240, 5);
 
-        ctx.fillStyle = "#6b7280";
-        ctx.font = "400 28px Poppins, sans-serif";
-        ctx.fillText("has successfully completed the learning path", w / 2, 590);
+        ctx.fillStyle = "#5b6b85";
+        ctx.font = `400 30px ${BODY}`;
+        ctx.fillText("has successfully completed the learning path", w / 2, 640);
 
-        ctx.fillStyle = "#111827";
-        fillFittedText(ctx, pathTitle, w / 2, 660, 700, 46, maxTextWidth);
+        ctx.fillStyle = "#1557d6";
+        fillFittedText(ctx, pathTitle, w / 2, 715, 700, 52, maxTextWidth);
 
         const dateStr = new Date().toLocaleDateString("en-ZA", { year: "numeric", month: "long", day: "numeric" });
-        ctx.fillStyle = "#6b7280";
-        ctx.font = "400 26px Poppins, sans-serif";
-        ctx.fillText(dateStr, w / 2, h - 140);
-        ctx.fillText("eduzar.co.za · Free, curated learning for every South African", w / 2, h - 90);
+        ctx.fillStyle = "#0b1b3a";
+        ctx.font = `600 28px ${BODY}`;
+        ctx.fillText(dateStr, w / 2, h - 170);
+        ctx.fillStyle = "#5b6b85";
+        ctx.font = `400 24px ${BODY}`;
+        ctx.fillText("tshepangscara.github.io/eduzar · Free, curated learning for every South African", w / 2, h - 115);
     }
 
     function openCertModal() {
@@ -1093,22 +1130,19 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// Open Menu
-openMenuBtn.addEventListener("click", () => {
-    navbar.classList.add("active");
-    overlay.classList.add("active");
-    syncScrollLock();
-});
-
-// Close Menu Function
+// Mobile slide-out menu (only if a page still has one — the bottom nav replaces it)
 function closeMenu() {
-    navbar.classList.remove("active");
-    overlay.classList.remove("active");
+    navbar?.classList.remove("active");
+    overlay?.classList.remove("active");
     syncScrollLock();
 }
-
-closeMenuBtn.addEventListener("click", closeMenu);
-overlay.addEventListener("click", closeMenu);
+openMenuBtn?.addEventListener("click", () => {
+    navbar?.classList.add("active");
+    overlay?.classList.add("active");
+    syncScrollLock();
+});
+closeMenuBtn?.addEventListener("click", closeMenu);
+overlay?.addEventListener("click", closeMenu);
 navLinks.forEach(link => { link.addEventListener("click", closeMenu); });
 document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape" || layers.some(l => l.el.classList.contains("active"))) return;
@@ -1150,21 +1184,6 @@ function heroSearchRedirect() {
 
 if (heroSearch) heroSearch.addEventListener("click", heroSearchRedirect);
 if (heroInput)  heroInput.addEventListener("keydown", (e) => { if (e.key === "Enter") heroSearchRedirect(); });
-
-// ── Active nav link on scroll (index page only) ────
-const sections = document.querySelectorAll("section[id]");
-if (sections.length) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(link => {
-                    link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
-                });
-            }
-        });
-    }, { rootMargin: "-40% 0px -55% 0px" });
-    sections.forEach(s => observer.observe(s));
-}
 
 // ── Back to Top button ─────────────────────────────
 const backToTop = document.createElement("button");

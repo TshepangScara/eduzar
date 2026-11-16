@@ -12,7 +12,9 @@ A free educational platform that aggregates thousands of hand-curated YouTube co
 - **Shareable links** — `courses.html?watch=VIDEO_ID` opens a course directly; `paths.html?path=PATH_ID` opens a path
 - **Favorites**, dark mode (follows system preference), data-saver thumbnails, keyboard shortcut `/` to search
 - **Progressive Web App** — installable; network-first service worker so updates ship immediately and pages still work offline
-- **Responsive design** — works across desktop and mobile
+- **Responsive design** — mobile gets an app-style bottom nav, compact list cards, swipeable featured row and bottom-sheet modals
+- **Design system** — palette taken from the logo (navy / cobalt / orange), Bricolage Grotesque + DM Sans, full dark mode with a dark-mode logo
+- **Accessible** — skip link, visible focus rings, `aria-current` nav, reduced-motion support
 
 All progress is stored in the browser (localStorage) — no accounts, no server.
 
@@ -34,7 +36,7 @@ main.js                      # rendering, filtering, and UI logic
 styles.css                   # site styling
 manifest.json                 # PWA manifest
 service-worker.js            # offline caching
-images-eduzar/                # logos and assets
+images-eduzar/                # logos, PWA icons, favicon, share image
 ```
 
 ## Running locally
