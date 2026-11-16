@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eduzar-v5';
+const CACHE_NAME = 'eduzar-v6';
 
 // Core assets to cache for offline use
 const CORE_ASSETS = [
@@ -10,7 +10,10 @@ const CORE_ASSETS = [
   'learning-paths-data.js',
   'main.js',
   'manifest.json',
-  'images-eduzar/logo eduzar.png'
+  'images-eduzar/logo.png',
+  'images-eduzar/logo-dark.png',
+  'images-eduzar/favicon.png',
+  'images-eduzar/icon-192.png'
 ];
 
 // Install – cache core assets

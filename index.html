@@ -1,397 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EduZar – free, hand-picked YouTube courses and learning paths. Learn anything, anytime, with no sign-up.">
-    <meta property="og:title" content="EduZar – Learn Anything, Anytime, For Free">
-    <meta property="og:description" content="Hand-picked YouTube courses & learning paths with progress tracking and free certificates. No sign-up required.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="images-eduzar/logo eduzar.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="EduZar – Free Educational Platform">
-    <meta name="twitter:description" content="Hand-picked YouTube courses & learning paths. Learn anything for free.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>EduZar – Learn Anything, For Free</title>
+    <meta name="description" content="Free, hand-picked YouTube courses and learning paths. Track your progress and earn free certificates. No sign-up required.">
+    <link rel="canonical" href="https://tshepangscara.github.io/eduzar/">
+    <meta property="og:title" content="EduZar – Learn Anything, Anytime, For Free">
+    <meta property="og:description" content="Free, hand-picked YouTube courses and learning paths. Track your progress and earn free certificates. No sign-up required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tshepangscara.github.io/eduzar/">
+    <meta property="og:image" content="https://tshepangscara.github.io/eduzar/images-eduzar/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EduZar – Learn Anything, Anytime, For Free">
+    <meta name="twitter:description" content="Free, hand-picked YouTube courses and learning paths. Track your progress and earn free certificates. No sign-up required.">
+    <meta name="twitter:image" content="https://tshepangscara.github.io/eduzar/images-eduzar/og-image.png">
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#007bff">
+    <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a1224" media="(prefers-color-scheme: dark)">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="EduZar">
-    <link rel="apple-touch-icon" href="images-eduzar/logo eduzar.png">
+    <link rel="icon" type="image/png" href="images-eduzar/favicon.png">
+    <link rel="apple-touch-icon" href="images-eduzar/apple-touch-icon.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script>try{var t=localStorage.getItem("eduzar-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
 </head>
-<body>
+<body data-page="index">
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ══════════════════════════════════════════════
-     HEADER
-══════════════════════════════════════════════ -->
 <header class="header" id="header">
-    <div class="container">
-
-        <button class="categories-btn" id="categories-btn" aria-label="Browse categories">
-            <i class="ri-apps-2-line"></i>
-            <span>Browse</span>
-        </button>
-
-        <a href="index.html" class="logo">
-            <img src="images-eduzar/logo eduzar.png" alt="EduZar Logo">
+    <div class="container header-inner">
+        <a href="index.html" class="logo" aria-label="EduZar home">
+            <img class="logo-light" src="images-eduzar/logo.png" alt="EduZar" width="885" height="289">
+            <img class="logo-dark" src="images-eduzar/logo-dark.png" alt="" width="885" height="289">
         </a>
 
-        <nav class="navbar" id="navbar">
-            <div class="nav-header">
-                <a href="index.html" class="logo mobile-logo">
-                    <img src="images-eduzar/logo eduzar.png" alt="EduZar Logo">
-                </a>
-                <button class="close-menu" id="close-menu" aria-label="Close menu">
-                    <i class="ri-close-line"></i>
-                </button>
-            </div>
-
+        <nav class="navbar" id="navbar" aria-label="Main">
             <ul class="nav-list">
-                <li><a href="#home"         class="nav-link">Home</a></li>
-                <li><a href="#categories"   class="nav-link">Categories</a></li>
-                <li><a href="#featured"     class="nav-link">Featured</a></li>
-                <li><a href="courses.html"  class="nav-link">Courses</a></li>
-                <li><a href="paths.html"    class="nav-link">Paths</a></li>
-                <li><a href="#about"        class="nav-link">About Us</a></li>
-                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li>
-                    <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
-                        <i class="ri-moon-line"></i>
-                    </button>
-                </li>
+                <li><a href="index.html" class="nav-link" data-nav="index">Home</a></li>
+                <li><a href="courses.html" class="nav-link" data-nav="courses">Courses</a></li>
+                <li><a href="paths.html" class="nav-link" data-nav="paths">Learning Paths</a></li>
+                <li><a href="courses.html?category=favorites" class="nav-link" data-nav="saved">Saved</a></li>
             </ul>
         </nav>
 
-        <div class="nav-auth">
-            <a href="courses.html" class="btn btn-primary btn-sm">Get Started</a>
+        <div class="header-actions">
+            <button class="icon-btn dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+                <i class="ri-moon-line"></i>
+            </button>
+            <a href="courses.html" class="btn btn-primary btn-sm header-cta">Start learning <i class="ri-arrow-right-line"></i></a>
         </div>
-
-        <button class="open-menu" id="open-menu" aria-label="Open menu">
-            <i class="ri-menu-3-line"></i>
-        </button>
     </div>
 </header>
 
-<!-- Overlay for mobile menu -->
-<div class="overlay" id="overlay"></div>
+<main id="main">
 
-<!-- ══════════════════════════════════════════════
-     CATEGORIES SIDEBAR
-══════════════════════════════════════════════ -->
-<aside class="cat-sidebar" id="cat-sidebar">
-    <div class="cat-sidebar-header">
-        <span>Browse Categories</span>
-        <button id="cat-close" aria-label="Close categories"><i class="ri-close-line"></i></button>
-    </div>
-    <ul class="cat-list">
-        <li><a href="courses.html?category=programming"><i class="ri-code-s-slash-line"></i> Programming</a></li>
-        <li><a href="courses.html?category=design"><i class="ri-palette-line"></i> Design</a></li>
-        <li><a href="courses.html?category=data"><i class="ri-bar-chart-line"></i> Data Science</a></li>
-        <li><a href="courses.html?category=marketing"><i class="ri-megaphone-line"></i> Marketing</a></li>
-        <li><a href="courses.html?category=business"><i class="ri-briefcase-line"></i> Business</a></li>
-        <li><a href="courses.html?category=language"><i class="ri-translate-2"></i> Languages</a></li>
-        <li><a href="courses.html?category=music"><i class="ri-music-line"></i> Music</a></li>
-    </ul>
-</aside>
-
-<!-- ══════════════════════════════════════════════
-     HERO
-══════════════════════════════════════════════ -->
+<!-- ══════════ HERO ══════════ -->
 <section class="hero" id="home">
-    <div class="container">
+    <div class="container hero-grid">
         <div class="hero-content">
-            <span class="hero-badge">🇿🇦 South Africa's Free Learning Platform</span>
-            <h1>Learn <span class="highlight">Anything</span>, Anytime – For Free</h1>
+            <span class="eyebrow"><span class="eyebrow-dot"></span> Free · No sign-up · Made in Mzansi</span>
+            <h1>Learn real skills from the <span class="highlight">best free courses</span> on YouTube.</h1>
             <p class="hero-subtitle">
-                The best free YouTube courses, hand-picked and organised into learning paths.<br>
-                Track your progress, pick up where you left off – no sign-up required.
+                We hand-pick the courses and put them in order, so you stop searching and start learning.
+                Progress saves as you watch, and finishing a path earns you a free certificate.
             </p>
 
-            <div class="hero-search">
-                <input
-                    type="text"
-                    id="hero-search-input"
-                    placeholder="Search courses (e.g. Python, UI Design, Photography)"
-                    class="search-input"
-                    aria-label="Search courses"
-                >
-                <button class="search-btn" id="hero-search-btn" aria-label="Search">
-                    <i class="ri-search-line"></i> Search
-                </button>
+            <div class="hero-search" role="search">
+                <i class="ri-search-line" aria-hidden="true"></i>
+                <input type="search" id="hero-search-input" class="search-input"
+                       placeholder="Search free courses" aria-label="Search courses" enterkeyhint="search">
+                <button class="btn btn-primary search-btn" id="hero-search-btn">Search</button>
             </div>
 
-            <div class="hero-cta">
-                <a href="courses.html" class="btn btn-primary">Browse All Courses</a>
-                <a href="#categories" class="btn btn-outline">View Categories</a>
+            <div class="hero-popular">
+                <span>Popular:</span>
+                <a href="courses.html?q=python">Python</a>
+                <a href="courses.html?q=excel">Excel</a>
+                <a href="courses.html?q=figma">Figma</a>
+                <a href="courses.html?q=sql">SQL</a>
+                <a href="courses.html?q=seo">SEO</a>
+                <a href="courses.html?q=guitar">Guitar</a>
             </div>
 
-            <div class="hero-stats">
-                <div><strong id="stat-courses">37</strong> Courses</div>
-                <div><strong id="stat-topics">80+</strong> Topics</div>
-                <div><strong>100% Free</strong></div>
+            <dl class="hero-stats">
+                <div><dt>free courses</dt><dd id="stat-courses">38</dd></div>
+                <div><dt>hours of video</dt><dd id="stat-hours-hero">160+</dd></div>
+                <div><dt>trusted educators</dt><dd id="stat-educators-hero">18</dd></div>
+            </dl>
+        </div>
+
+        <!-- Decorative preview of how a learning path looks -->
+        <div class="hero-visual" aria-hidden="true">
+            <div class="mock-card">
+                <div class="mock-head">
+                    <div class="mock-icon"><i class="ri-code-s-slash-line"></i></div>
+                    <div>
+                        <strong>Front-End Web Developer</strong>
+                        <span>Learning path · 6 courses</span>
+                    </div>
+                </div>
+                <div class="mock-progress"><span style="width:50%"></span></div>
+                <div class="mock-progress-label"><span>3 of 6 complete</span><span>50%</span></div>
+                <ul class="mock-rows">
+                    <li class="done"><i class="ri-checkbox-circle-fill"></i><span>HTML Full Course – Build a Website</span></li>
+                    <li class="done"><i class="ri-checkbox-circle-fill"></i><span>CSS Tutorial – Zero to Hero</span></li>
+                    <li class="done"><i class="ri-checkbox-circle-fill"></i><span>JavaScript Full Course for Beginners</span></li>
+                    <li class="next"><i class="ri-play-circle-fill"></i><span>Git &amp; GitHub Crash Course</span><em>Up next</em></li>
+                    <li><i class="ri-checkbox-blank-circle-line"></i><span>React Course for Beginners</span></li>
+                </ul>
+            </div>
+            <div class="mock-chip chip-resume">
+                <i class="ri-history-line"></i>
+                <div><strong>Resume at 42:17</strong><span>Saved automatically</span></div>
+            </div>
+            <div class="mock-chip chip-cert">
+                <i class="ri-award-fill"></i>
+                <div><strong>Free certificate</strong><span>Finish the path</span></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     CONTINUE LEARNING (shown once you've opened a course)
-══════════════════════════════════════════════ -->
+<!-- ══════════ CONTINUE LEARNING (shown once you've opened a course) ══════════ -->
 <section class="continue-learning" id="continue-learning" hidden>
     <div class="container">
-        <div class="continue-header">
+        <div class="section-head">
             <div>
-                <h2>Continue Learning</h2>
-                <p>Pick up right where you left off.</p>
+                <h2 class="section-title">Continue learning</h2>
+                <p class="section-subtitle">Pick up right where you left off.</p>
             </div>
-            <a href="courses.html" class="btn btn-outline btn-sm">Browse more</a>
+            <a href="courses.html" class="link-arrow">Browse more <i class="ri-arrow-right-line"></i></a>
         </div>
-        <!-- Populated from your watch history by main.js -->
         <div class="recent-grid"></div>
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     CATEGORIES
-══════════════════════════════════════════════ -->
+<!-- ══════════ CATEGORIES ══════════ -->
 <section class="categories reveal" id="categories">
     <div class="container">
-        <h2 class="section-title">Browse by Category</h2>
-        <p class="section-subtitle">Find courses grouped by the topics you care about most.</p>
+        <div class="section-head">
+            <div>
+                <span class="kicker">Explore</span>
+                <h2 class="section-title">Browse by category</h2>
+            </div>
+            <a href="courses.html" class="link-arrow">All courses <i class="ri-arrow-right-line"></i></a>
+        </div>
 
         <div class="categories-grid">
-            <a href="courses.html?category=programming" class="category-card">
-                <i class="ri-code-s-slash-line category-icon"></i>
-                <h3>Programming</h3>
-                <span>13 courses</span>
-            </a>
-            <a href="courses.html?category=design" class="category-card">
-                <i class="ri-palette-line category-icon"></i>
-                <h3>Design</h3>
-                <span>4 courses</span>
-            </a>
-            <a href="courses.html?category=data" class="category-card">
-                <i class="ri-bar-chart-line category-icon"></i>
-                <h3>Data Science</h3>
-                <span>5 courses</span>
-            </a>
-            <a href="courses.html?category=marketing" class="category-card">
-                <i class="ri-megaphone-line category-icon"></i>
-                <h3>Marketing</h3>
-                <span>5 courses</span>
-            </a>
-            <a href="courses.html?q=photo" class="category-card">
-                <i class="ri-camera-line category-icon"></i>
-                <h3>Photography</h3>
-                <span>2 courses</span>
-            </a>
-            <a href="courses.html?category=business" class="category-card">
-                <i class="ri-briefcase-line category-icon"></i>
-                <h3>Business</h3>
-                <span>4 courses</span>
-            </a>
-            <a href="courses.html?category=language" class="category-card">
-                <i class="ri-translate-2 category-icon"></i>
-                <h3>Languages</h3>
-                <span>5 courses</span>
-            </a>
-            <a href="courses.html?category=music" class="category-card">
-                <i class="ri-music-line category-icon"></i>
-                <h3>Music</h3>
-                <span>2 courses</span>
-            </a>
+            <a href="courses.html?category=programming" class="category-card" style="--cat:var(--c-blue)"><i class="ri-code-s-slash-line category-icon"></i><h3>Programming</h3><span>13 courses</span></a>
+            <a href="courses.html?category=design" class="category-card" style="--cat:var(--c-pink)"><i class="ri-palette-line category-icon"></i><h3>Design</h3><span>4 courses</span></a>
+            <a href="courses.html?category=data" class="category-card" style="--cat:var(--c-teal)"><i class="ri-bar-chart-box-line category-icon"></i><h3>Data Science</h3><span>5 courses</span></a>
+            <a href="courses.html?category=marketing" class="category-card" style="--cat:var(--c-orange)"><i class="ri-megaphone-line category-icon"></i><h3>Marketing</h3><span>5 courses</span></a>
+            <a href="courses.html?q=photo" class="category-card" style="--cat:var(--c-violet)"><i class="ri-camera-lens-line category-icon"></i><h3>Photography</h3><span>2 courses</span></a>
+            <a href="courses.html?category=business" class="category-card" style="--cat:var(--c-navy)"><i class="ri-briefcase-4-line category-icon"></i><h3>Business</h3><span>4 courses</span></a>
+            <a href="courses.html?category=language" class="category-card" style="--cat:var(--c-green)"><i class="ri-translate-2 category-icon"></i><h3>Languages</h3><span>5 courses</span></a>
+            <a href="courses.html?category=music" class="category-card" style="--cat:var(--c-red)"><i class="ri-music-2-line category-icon"></i><h3>Music</h3><span>2 courses</span></a>
         </div>
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     FEATURED COURSES
-══════════════════════════════════════════════ -->
+<!-- ══════════ FEATURED ══════════ -->
 <section class="featured reveal" id="featured">
     <div class="container">
-        <h2 class="section-title">Featured Courses</h2>
-        <p class="section-subtitle">Handpicked favourites — start here if you're not sure where to begin.</p>
-
-        <!-- Featured cards populated from courses-data.js by main.js (featured: true entries) -->
-        <div class="featured-grid"></div>
-
-        <div style="text-align:center; margin-top: 3.5rem;">
-            <a href="courses.html" id="see-all-link" class="btn btn-outline">See All 37 Courses</a>
+        <div class="section-head">
+            <div>
+                <span class="kicker">Start here</span>
+                <h2 class="section-title">Featured courses</h2>
+                <p class="section-subtitle">Hand-picked favourites if you're not sure where to begin.</p>
+            </div>
+            <a href="courses.html" id="see-all-link" class="link-arrow">See all courses</a>
         </div>
+        <div class="featured-grid"></div>
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     LEARNING PATHS TEASER
-══════════════════════════════════════════════ -->
+<!-- ══════════ HOW IT WORKS ══════════ -->
+<section class="how reveal" id="how">
+    <div class="container">
+        <div class="section-head center">
+            <div>
+                <span class="kicker">How it works</span>
+                <h2 class="section-title">From "where do I start?" to certified</h2>
+            </div>
+        </div>
+        <ol class="steps">
+            <li class="step">
+                <span class="step-num">01</span>
+                <i class="ri-compass-3-line step-icon"></i>
+                <h3>Pick a course or a path</h3>
+                <p>Search for a skill, or follow a path that puts the right courses in the right order.</p>
+            </li>
+            <li class="step">
+                <span class="step-num">02</span>
+                <i class="ri-play-circle-line step-icon"></i>
+                <h3>Watch. We remember.</h3>
+                <p>Your progress saves in this browser while you watch. Come back later and resume where you stopped.</p>
+            </li>
+            <li class="step">
+                <span class="step-num">03</span>
+                <i class="ri-award-line step-icon"></i>
+                <h3>Finish and get a certificate</h3>
+                <p>Complete every course in a path and download a free certificate you can share.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- ══════════ LEARNING PATHS TEASER ══════════ -->
 <section class="paths-teaser reveal">
     <div class="container">
-        <h2 class="section-title">Follow a Learning Path</h2>
-        <p class="section-subtitle">Don't just watch videos — follow a curated, ordered track toward a real skill and earn a free certificate when you finish.</p>
-
-        <!-- Teaser cards populated from learning-paths-data.js by main.js -->
-        <div class="paths-teaser-grid"></div>
-
-        <div style="text-align:center; margin-top: 3.5rem;">
-            <a href="paths.html" class="btn btn-primary">View All Learning Paths</a>
+        <div class="section-head">
+            <div>
+                <span class="kicker">Learning paths</span>
+                <h2 class="section-title">Follow a path to a real skill</h2>
+                <p class="section-subtitle">Ordered tracks with an "up next" marker, so you always know what to watch.</p>
+            </div>
+            <a href="paths.html" class="link-arrow">All paths <i class="ri-arrow-right-line"></i></a>
         </div>
+        <div class="paths-teaser-grid"></div>
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     ABOUT
-══════════════════════════════════════════════ -->
+<!-- ══════════ ABOUT ══════════ -->
 <section class="about reveal" id="about">
-    <div class="container">
+    <div class="container about-inner">
         <div class="about-text">
-            <h2>Why Choose EduZar?</h2>
+            <span class="kicker">Why EduZar</span>
+            <h2>The internet has great free courses. Finding them is the hard part.</h2>
             <p>
-                EduZar is a free platform that curates the best YouTube courses and tutorials so you don't have to
-                spend hours searching. We do the hard work of finding quality content — you just show up and learn.
+                EduZar does the searching for you. Every course is checked, labelled by level and length,
+                and grouped so you can see what's worth your time before you press play.
             </p>
-            <p>
-                No paywalls, no subscriptions, no accounts required. Just click, watch, and grow.
-            </p>
-
             <ul class="about-features">
-                <li><i class="ri-check-double-line"></i> 100% free — forever, no hidden fees</li>
-                <li><i class="ri-check-double-line"></i> Hand-curated from trusted YouTube educators</li>
-                <li><i class="ri-check-double-line"></i> Beginner to advanced — something for every level</li>
-                <li><i class="ri-check-double-line"></i> New courses added every week</li>
-                <li><i class="ri-check-double-line"></i> No account or sign-up needed to watch</li>
+                <li><i class="ri-check-line"></i> 100% free, no hidden fees</li>
+                <li><i class="ri-check-line"></i> Trusted educators only</li>
+                <li><i class="ri-check-line"></i> Beginner to advanced</li>
+                <li><i class="ri-check-line"></i> No account needed</li>
+                <li><i class="ri-check-line"></i> Works offline as an app</li>
+                <li><i class="ri-check-line"></i> Data-saver friendly</li>
             </ul>
-
-            <a href="courses.html" class="btn btn-primary">Start Learning Now</a>
+            <a href="courses.html" class="btn btn-accent">Start learning now <i class="ri-arrow-right-line"></i></a>
         </div>
 
         <div class="about-stats">
-            <div class="stat-box">
-                <strong id="stat-courses-2">37</strong>
-                <span>Free Courses</span>
-            </div>
-            <div class="stat-box">
-                <strong id="stat-topics-2">80+</strong>
-                <span>Topics</span>
-            </div>
-            <div class="stat-box">
-                <strong id="stat-educators">18</strong>
-                <span>Educators</span>
-            </div>
-            <div class="stat-box">
-                <strong id="stat-hours">185+</strong>
-                <span>Hours of Content</span>
-            </div>
+            <div class="stat-box"><strong id="stat-courses-2">38</strong><span>Free courses</span></div>
+            <div class="stat-box"><strong id="stat-topics-2">80+</strong><span>Topics</span></div>
+            <div class="stat-box"><strong id="stat-educators">18</strong><span>Educators</span></div>
+            <div class="stat-box"><strong id="stat-hours">160+</strong><span>Hours of content</span></div>
         </div>
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     TESTIMONIALS
-══════════════════════════════════════════════ -->
-<section class="testimonials reveal" id="testimonials">
+<!-- ══════════ SUGGEST CTA ══════════ -->
+<section class="cta-band reveal">
     <div class="container">
-        <h2 class="section-title">What Learners Say</h2>
-        <p class="section-subtitle">Real feedback from our community of free learners.</p>
-
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-stars">
-                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i>
-                </div>
-                <p>"EduZar helped me go from zero to landing my first freelance design project in just 3 months. The curated courses saved me so much time finding quality content."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">N</div>
-                    <div class="author-info">
-                        <strong>Nomvula D.</strong>
-                        <span>Freelance UI Designer, Cape Town</span>
-                    </div>
-                </div>
+        <div class="cta-card">
+            <div>
+                <h2>Know a great free course?</h2>
+                <p>EduZar grows through suggestions. Send it in and it could be added to the catalogue.</p>
             </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-stars">
-                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i>
-                </div>
-                <p>"I was skeptical about free resources but EduZar proved me wrong. The Python course I found here helped me switch careers into data science."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">S</div>
-                    <div class="author-info">
-                        <strong>Sipho M.</strong>
-                        <span>Junior Data Analyst, Johannesburg</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="testimonial-stars">
-                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
-                    <i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
-                </div>
-                <p>"The category organisation makes it so easy to discover new topics. I started with web dev and ended up learning about digital marketing too — all for free!"</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">T</div>
-                    <div class="author-info">
-                        <strong>Thandi N.</strong>
-                        <span>Small Business Owner, Durban</span>
-                    </div>
-                </div>
-            </div>
+            <a href="https://github.com/tshepangscara/eduzar/issues/new" target="_blank" rel="noopener" class="btn btn-light">
+                <i class="ri-lightbulb-flash-line"></i> Suggest a course
+            </a>
         </div>
     </div>
 </section>
 
-<!-- ══════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════ -->
-<footer>
+</main>
+
+<footer class="site-footer">
     <div class="container footer-inner">
         <div class="footer-brand">
-            <img src="images-eduzar/logo eduzar.png" alt="EduZar Logo" class="footer-logo">
-            <p>Free, curated learning for every South African.</p>
+            <img class="footer-logo logo-light" src="images-eduzar/logo.png" alt="EduZar" width="885" height="289" loading="lazy">
+            <img class="footer-logo logo-dark" src="images-eduzar/logo-dark.png" alt="" width="885" height="289" loading="lazy">
+            <p>Free, curated learning for every South African. No paywalls, no accounts, no noise.</p>
         </div>
-        <div class="footer-links">
-            <h4>Quick Links</h4>
-            <a href="#home">Home</a>
-            <a href="#categories">Categories</a>
-            <a href="#featured">Featured</a>
-            <a href="courses.html">Courses</a>
-            <a href="paths.html">Learning Paths</a>
-            <a href="#about">About Us</a>
-            <a href="#testimonials">Testimonials</a>
+        <div class="footer-col">
+            <h4>Learn</h4>
+            <a href="courses.html">All courses</a>
+            <a href="paths.html">Learning paths</a>
+            <a href="courses.html?category=favorites">Saved courses</a>
+            <a href="courses.html?sort=short">Short courses</a>
         </div>
-        <div class="footer-social">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="#" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
-                <a href="#" aria-label="Instagram"><i class="ri-instagram-fill"></i></a>
-                <a href="#" aria-label="Twitter/X"><i class="ri-twitter-x-fill"></i></a>
-                <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-            </div>
+        <div class="footer-col">
+            <h4>Categories</h4>
+            <a href="courses.html?category=programming">Programming</a>
+            <a href="courses.html?category=design">Design</a>
+            <a href="courses.html?category=data">Data Science</a>
+            <a href="courses.html?category=business">Business</a>
+        </div>
+        <div class="footer-col">
+            <h4>Project</h4>
+            <a href="https://github.com/tshepangscara/eduzar/issues/new" target="_blank" rel="noopener">Suggest a course <i class="ri-external-link-line"></i></a>
+            <a href="https://github.com/tshepangscara/eduzar" target="_blank" rel="noopener">Source on GitHub <i class="ri-external-link-line"></i></a>
         </div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 EduZar. All rights reserved. Made with ❤️ in South Africa.</p>
+    <div class="container footer-bottom">
+        <p>&copy; 2026 EduZar · Made in South Africa by <a href="https://github.com/tshepangscara" target="_blank" rel="noopener">Tshepang Molete</a></p>
+        <p>All videos belong to their creators and play from YouTube.</p>
     </div>
 </footer>
+
+<nav class="bottom-nav" aria-label="Quick navigation">
+    <a href="index.html" data-nav="index"><i class="ri-home-5-line"></i><span>Home</span></a>
+    <a href="courses.html" data-nav="courses"><i class="ri-play-list-2-line"></i><span>Courses</span></a>
+    <a href="paths.html" data-nav="paths"><i class="ri-route-line"></i><span>Paths</span></a>
+    <a href="courses.html?category=favorites" data-nav="saved"><i class="ri-heart-3-line"></i><span>Saved</span></a>
+</nav>
 
 <script src="courses-data.js"></script>
 <script src="learning-paths-data.js"></script>
 <script src="main.js"></script>
 <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-            .then(reg => console.log('EduZar SW registered:', reg.scope))
-            .catch(err => console.warn('SW registration failed:', err));
+        navigator.serviceWorker.register('service-worker.js').catch(err => console.warn('SW registration failed:', err));
     }
 </script>
 </body>
