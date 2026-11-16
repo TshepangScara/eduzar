@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eduzar-v6';
+const CACHE_NAME = 'eduzar-v7';
 
 // Core assets to cache for offline use
 const CORE_ASSETS = [

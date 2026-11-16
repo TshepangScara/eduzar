@@ -54,3 +54,7 @@ Then open `http://localhost:8000` in your browser.
 Add a new entry to the `EDUZAR_COURSES` array in `courses-data.js` — it will automatically appear in both the homepage (if `featured: true`) and the full course catalog.
 
 **Verify the video first.** Open `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=VIDEO_ID&format=json` — if it says "Not Found" the video is gone. Copy the real title and channel from that response, and set `duration` in hours from the actual video length. (In Oct 2026, 8 of the original 32 IDs were dead and several pointed at unrelated videos.)
+
+## Deploying changes
+
+GitHub Pages lets browsers cache files for about 10 minutes. When you change `styles.css` or any `.js` file, bump the `?v=` number on its `<link>`/`<script>` tags in all three HTML files (and `CACHE_NAME` in `service-worker.js`) so visitors never get new HTML with an old stylesheet.
